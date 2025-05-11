@@ -8,3 +8,17 @@ This app allows users to search for word definitions, synonyms, and examples, pr
 ![Screenshot](./ss2.png)
 
 ![Screenshot](./ss3.png)
+
+## Features:
+🔍 Word Search: Find definitions, synonyms, and examples.
+
+💡 Dynamic UI: Smooth animations and a clean, responsive design.
+
+⚡ Fast Performance: Built with Vite for optimized speed.
+
+🎨 Customizable Theme: Styled using Sass for flexible design.
+
+## Tech Stack:
+Frontend: HTML, CSS (Sass), JavaScript
+
+Bundler: Vite
