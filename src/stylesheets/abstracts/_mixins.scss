@@ -1,0 +1,32 @@
+
+@use "sass:map";
+@use "variables";
+@mixin media-breakpoint(
+  $mq-breakpoint,
+  $mq-breakpoints: variables.$breakpoints
+) {
+  @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+  }
+
+  @media screen and (min-width: #{$mq-breakpoint}) {
+    @content;
+  }
+}
+@mixin media-breakpoint-max(
+  $mq-breakpoint,
+  $mq-breakpoints: variables.$breakpoints
+) {
+  @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+  }
+
+  @media screen and (max-width: calc(#{$mq-breakpoint} - 1px)) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: 737px;
+  margin-inline: auto;
+}

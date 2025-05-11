@@ -1,0 +1,7 @@
+
+/// @prop {String} keys - identifiers mapped to a given length
+/// @prop {Map} values - actual breakpoints expressed in pixels
+$breakpoints: (
+  "tablet": 768px,
+  "desktop": 1024px,
+) !default;

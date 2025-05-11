@@ -1,0 +1,118 @@
+@use "../abstracts/mixins";
+
+.definitions {
+  padding: 2rem;
+  background: linear-gradient(135deg, #0e0606, #38041b);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  margin-top: 2rem;
+}
+
+.definition__part-of-speech {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--theme-horizontal-rule);
+}
+
+.definition__part-of-speech::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, #ff7f50, #1e90ff);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+}
+
+.definition__part-of-speech:hover::after {
+  transform: scaleX(1);
+}
+
+.definition__meaning-label,
+.definition__synonym-label,
+.definition__antonym-label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #b5a3a3;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.definition__meaning-list {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.definition__meaning-list>li {
+  list-style: none;
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.8rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: slide-in 0.4s forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+.definition__meaning-list>li::before {
+  content: "\2022";
+  color: var(--theme-clr-accent);
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+}
+
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.definition__synonym,
+.definition__antonym {
+  color: var(--theme-clr-accent);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.definition__synonym:hover,
+.definition__antonym:hover {
+  color: #1e90ff;
+}
+
+.definition__source-label {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--theme-horizontal-rule);
+}
+
+.definition__source-url a {
+  text-decoration: none;
+  color: #1e90ff;
+  transition: color 0.3s;
+}
+
+.definition__source-url a:hover {
+  color: #ff7f50;
+}
+
+@include mixins.media-breakpoint("tablet") {
+  .definition__part-of-speech {
+    margin-top: 3rem;
+  }
+
+  .definition__meaning-label {
+    margin-top: 2.5rem;
+  }
+}

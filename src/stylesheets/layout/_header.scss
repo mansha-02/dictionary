@@ -1,0 +1,11 @@
+@use "../abstracts/mixins";
+
+.header {
+  @include mixins.container;
+  padding-inline: 1.5rem;
+}
+.settings {
+  align-items: center;
+  margin-top: 3.5rem;
+}
+
